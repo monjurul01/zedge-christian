@@ -98,9 +98,9 @@ jobs:
           //   exact=true  -> upload starts at HH:MM sharp (the gate sleeps until that minute if the ping came early;
           //                  a missed ping is caught up on the next ping within the same 3 h window).
           // Falls back to DEFAULT_WINDOWS if Firebase is unreachable. Health + run markers -> dashboardSettings/gate.
-          const DB = "https://zedge-r2-ryan-hermes-default-rtdb.firebaseio.com";
-          const ACCOUNT = "ZEDGE2";
-          const DEFAULT_WINDOWS = [11, 16, 21];   // window start hours (Asia/Dhaka) - fallback only
+          const DB = "https://zedge-r2-christian-hermes-default-rtdb.firebaseio.com";
+          const ACCOUNT = "ZEDGE3";
+          const DEFAULT_WINDOWS = [5, 11, 17];   // window start hours (Asia/Dhaka) - fallback only
           const WINDOW_HOURS = 3;                      // each window lasts 3 hours
           const SLOT_MIN = 30;                         // scheduler pings every 30 min
           const RUN_ID = process.env.GITHUB_RUN_ID || "";
@@ -927,8 +927,8 @@ jobs:
         shell: pwsh
         timeout-minutes: 15
         env:
-          FIREBASE_DB_URL: "https://zedge-r2-ryan-hermes-default-rtdb.firebaseio.com"
-          ACCOUNT_LABEL: "Zedge 2"
+          FIREBASE_DB_URL: "https://zedge-r2-christian-hermes-default-rtdb.firebaseio.com"
+          ACCOUNT_LABEL: "Zedge 3"
           RUN_MODE: ${{ inputs.run_mode }}
           VPN_PROFILE: ${{ inputs.vpn_profile }}
           TELEGRAM_BOT_TOKEN: "8875181350:AAFay-L86o3ON-9CpEFrEnnBXJrLap6QU_Q"
@@ -953,7 +953,7 @@ jobs:
           const zedgePassword = process.env.ZEDGE_PASSWORD;
           const isHeadless = process.env.HEADLESS === "true";
 
-          const firebaseDatabaseURL = "https://zedge-r2-ryan-hermes-default-rtdb.firebaseio.com"; // <-- CONFIG: your Firebase Realtime Database URL for account 2
+          const firebaseDatabaseURL = "https://zedge-r2-christian-hermes-default-rtdb.firebaseio.com"; // <-- CONFIG: your Firebase Realtime Database URL for account 3
           const queuePath = "wallpaperQueue";
           const r2WorkerUrl = "https://zedgemedia.monjurulgd2001.workers.dev"; // <-- CONFIG: your Cloudflare R2 worker URL
 
@@ -3434,7 +3434,7 @@ jobs:
           # Telegram reports - token/chat id hardcoded below (no repository secrets needed)
           TELEGRAM_BOT_TOKEN: "8875181350:AAFay-L86o3ON-9CpEFrEnnBXJrLap6QU_Q"
           TELEGRAM_CHAT_ID: "6733643531"
-          FOLDER_NAME: "Zedge 2"
+          FOLDER_NAME: "Zedge 3"
 
         run: node bot.js
 
